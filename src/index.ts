@@ -12,7 +12,7 @@ app.get('/', async (c) => {
 
   const db = drizzle(c.env.MY_DB);
   const headers = c.req.raw.headers.entries()
-  console.log(headers)
+  console.log(JSON.stringify(headers))
 
   db.insert(loggingTable).values({
     headers: JSON.stringify(headers),
