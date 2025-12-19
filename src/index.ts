@@ -14,7 +14,7 @@ app.get('/', async (c) => {
   const headers = await c.req.header
   console.log(headers)
 
-
+  console.log(await c.env.MY_DB)
 
   db.insert(loggingTable).values({
     headers: JSON.stringify(headers),
