@@ -11,7 +11,7 @@ const app = new Hono<{ Bindings: Bindings }>()
 app.get('/', async (c) => {
 
   const db = drizzle(c.env.MY_DB);
-  const headers = c.req
+  const headers = c.req.raw.headers.entries()
   console.log(headers)
 
   db.insert(loggingTable).values({
